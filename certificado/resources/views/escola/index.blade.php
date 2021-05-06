@@ -5,7 +5,7 @@
 <div class="container">
     <h2>Agenda</h2>
     <hr />
-    <a href="{{ url('escola/create') }}" class="btn btn-success">Novo Contato</a>
+    <a href="{{ route('escola.create') }}" class="btn btn-success">Novo Contato</a>
     <br /><br />
     <table class="table">
         <thead class="thead-dark">
@@ -26,6 +26,7 @@
                 <td>{{ $escolas->funcao_resp }}</td>
                 <td>
                     <a href="{{ route('escola.edit',$escolas->id)}}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{{ route('pdf.show',$escolas->id)}}" class="btn btn-success btn-sm">ler</a>
                     <a href="{{ url('escola/delete',['id'=>$escolas->id])}}" class="btn btn-danger btn-sm">Remover</a>
                 </td>
             </tr>

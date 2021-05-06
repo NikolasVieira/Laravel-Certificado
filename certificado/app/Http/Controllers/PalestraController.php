@@ -3,82 +3,65 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Palestra;
 
 class PalestraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $palestra = Palestra::All();
+        return view('palestra.index', compact('palestra'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $palestra = Palestra::All();
+        return view('palestra.create', compact('palestra'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $palestra = new Palestra();
+        $palestra->nome_palestra = $request->input('nome_palestra');
+        $palestra->responsavel = $request->input('responsavel');
+        $palestra->funcao_resp = $request->input('funcao_resp');
+
+        $palestra->save();
+        return redirect()->route('palestra.index', compact('palestra'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $palestra = Palestra::find($id);
+        if(isset($palestra)){
+            return view('palestra.edit', compact('palestra'));
+        }
+            return view('palestra.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $palestra = Palestra::find($id);
+        if (isset($palestra)) {
+            $palestra->nome_palestra = $request->input('nome_palestra');
+            $palestra->responsavel = $request->input('responsavel');
+            $palestra->funcao_resp = $request->input('funcao_resp');
+            $palestra->save();
+        }
+            return redirect()->route('palestra.index', compact('palestra'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $palestra = Palestra::find($id);
+        if (isset($palestra)) {
+            $palestra->delete();
+        }
+            return redirect()->route('palestra.index');
     }
 }
