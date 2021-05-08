@@ -6,17 +6,23 @@ use App\Http\Controllers\EscolaController;
 use App\Http\Controllers\PalestraController;
 use App\Http\Controllers\PdfController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('index');
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+//CERTIFICADO
+
+//ROTAS ESCOLA
 Route::resource('/escola', EscolaController::class);
-Route::get('escola/delete/{id}', [EscolaController::class, 'destroy'])->name('escola.delete');
+Route::get('escola/delete/{id}', [EscolaController::class, 'destroy'])->name('escola.destroy');
 
+//ROTAS PALESTRA
 Route::resource('/palestra', PalestraController::class);
+Route::get('/palestra/delete/{id}', [PalestraController::class, 'destroy'])->name('palestra.destroy');
 
-Route::resource('/pdf', EscolaController::class);
-Route::get('/gerarpdf', [PdfController::class, 'geraPdf'])->name('pdf.gen');
+//ROTAS PDF
+Route::resource('/pdf', PdfController::class);
+Route::get('/certificados', [PdfController::class, 'index'])->name('certificado.index');
+Route::get('/certificado/{id}', [PdfController::class, 'show'])->name('certificado.show');
+

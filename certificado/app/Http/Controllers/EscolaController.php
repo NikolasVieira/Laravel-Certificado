@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Escola;
 
-
 class EscolaController extends Controller
 {
 
@@ -34,7 +33,16 @@ class EscolaController extends Controller
 
     public function show($id)
     {
-        //
+        $escola = Escola::where('id', $id)->first();
+        if($escola) {
+            return view('escola.show', compact('escola'));
+        }
+        /*
+        $palestras = $escola->palestras()->get();
+        if($palestras) {
+            return view('escola.show', compact('escola'));
+        }
+        */
     }
 
     public function edit($id)

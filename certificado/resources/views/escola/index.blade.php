@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h2>Agenda</h2>
+    <h2>Escolas</h2>
     <hr />
     <a href="{{ route('escola.create') }}" class="btn btn-success">Novo Contato</a>
     <br /><br />
@@ -13,7 +13,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Nome da escola</th>
                 <th scope="col">Responsavel</th>
-                <th scope="col">Função responsavel</th>
+                <th scope="col">Função do Responsavel</th>
                 <th scope="col">Opções</th>
             </tr>
         </thead>
@@ -26,8 +26,8 @@
                 <td>{{ $escolas->funcao_resp }}</td>
                 <td>
                     <a href="{{ route('escola.edit',$escolas->id)}}" class="btn btn-primary btn-sm">Editar</a>
-                    <a href="{{ route('pdf.show',$escolas->id)}}" class="btn btn-success btn-sm">ler</a>
-                    <a href="{{ url('escola/delete',['id'=>$escolas->id])}}" class="btn btn-danger btn-sm">Remover</a>
+                    <a href="{{ route('escola.show',$escolas->id)}}" class="btn btn-success btn-sm">Ver</a>
+                    <a href="{{ route('escola.destroy',['id'=>$escolas->id])}}" class="btn btn-danger btn-sm">Remover</a>
                 </td>
             </tr>
         </tbody>

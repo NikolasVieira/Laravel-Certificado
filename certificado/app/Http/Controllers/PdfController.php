@@ -9,23 +9,19 @@ use PDF;
 
 class PdfController extends Controller
 {
-    public function geraPdf()
+    public function index()
     {
-        $escola = Escola::all();
-        $palestra = Palestra::all();
-        $pdf = PDF::loadView('pdf.index', compact('escola', 'palestra'));
-
-        return $pdf->setPaper('a4', 'landscape')->stream('certificado.pdf');
+        $palestra = Palestra::All();
+        return view('certificado.index', compact('palestra'));
     }
+
     public function show($id)
     {
         $escola = Escola::all();
         $palestra = Palestra::find($id);
-        $pdf = PDF::loadView('pdf.show', compact('escola', 'palestra'));
-        
-        if (isset($palestra)) {
-            return $pdf->setPaper('a4', 'landscape')->stream('certificado.pdf');
-        }
-            return view('palestra.index');
+
+        $pdf = PDF::loadView('certificado.show', compact('escola', 'palestra'));
+
+        return $pdf->setPaper('a4', 'landscape')->stream('certificado.pdf');
     }
 }

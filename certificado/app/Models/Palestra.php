@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Palestra extends Model
 {
+    protected $table = 'palestras';
     protected $fillable = [
-        'Id_escola',
         'tema',
         'palestrante',
         'periodo',
-        'cidade', 
+        'cidade',
         'horas'
     ];
+    public function escola()
+    {
+        return $this->belongsTo(Escola::class, 'escola_id', 'id');
+    }
 }

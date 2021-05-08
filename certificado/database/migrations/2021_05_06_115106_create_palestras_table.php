@@ -6,16 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePalestrasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('palestras', function (Blueprint $table) {
             $table->id();
-            $table->string('Id_escola');
+            $table->unsignedBigInteger('escola_id')->unsigned();
+            $table->foreign('escola_id')->references('id')->on('escolas')->onDelete('cascade');
             $table->string('tema');
             $table->string('palestrante');
             $table->string('periodo');
@@ -25,11 +21,6 @@ class CreatePalestrasTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('palestras');

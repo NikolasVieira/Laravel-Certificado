@@ -6,9 +6,9 @@
         @csrf
         <div class="row">
             <div class="form-group col">
-                <label for="nome_escola">nome da escola</label>
-                <input type="text" class="form-control {{ $errors->has('nome_escola') ? 'is-invalid' : ''}}" id="nome_escola"
-                    name="nome_escola" placeholder="Informe o nome da escola">
+                <label for="nome_escola">Nome da Escola</label>
+                <input type="text" class="form-control {{ $errors->has('nome_escola') ? 'is-invalid' : ''}}"
+                    id="nome_escola" name="nome_escola" placeholder="Informe o nome da escola">
                 @if ($errors->has('nome_escola'))
                 <div class="invalid-feedback">
                     {{$errors->first('nome_escola','Atenção o campo nome da escola é obrigatório!')}}
@@ -31,8 +31,8 @@
         <div class="row">
             <div class="form-group col">
                 <label for="funcao_resp">função responsavel</label>
-                <input type="text" class="form-control {{ $errors->has('funcao_resp') ? 'is-invalid' : ''}}" id="funcao_resp"
-                    name="funcao_resp" placeholder="Informe a função responsavel">
+                <input type="text" class="form-control {{ $errors->has('funcao_resp') ? 'is-invalid' : ''}}"
+                    id="funcao_resp" name="funcao_resp" placeholder="Informe a função responsavel">
                 @if ($errors->has('funcao_resp'))
                 <div class="invalid-feedback">
                     {{$errors->first('funcao_resp','Atenção o campo função responsavel é obrigatório!')}}
