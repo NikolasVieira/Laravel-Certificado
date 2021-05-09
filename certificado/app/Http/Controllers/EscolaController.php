@@ -33,16 +33,13 @@ class EscolaController extends Controller
 
     public function show($id)
     {
-        $escola = Escola::where('id', $id)->first();
-        if($escola) {
-            return view('escola.show', compact('escola'));
+        $palestra = Palestra::All();
+        $escola = Escola::find($id);
+
+        if(isset($escola)){
+            return view('escola.show', compact('escola', 'palestra'));
         }
-        /*
-        $palestras = $escola->palestras()->get();
-        if($palestras) {
-            return view('escola.show', compact('escola'));
-        }
-        */
+            return view('escola.index');
     }
 
     public function edit($id)

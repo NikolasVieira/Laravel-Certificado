@@ -6,7 +6,7 @@ use App\Http\Controllers\EscolaController;
 use App\Http\Controllers\PalestraController;
 use App\Http\Controllers\PdfController;
 
-Route::view('/', 'welcome')->name('index');
+Route::view('/', 'index')->name('index');
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -22,7 +22,6 @@ Route::resource('/palestra', PalestraController::class);
 Route::get('/palestra/delete/{id}', [PalestraController::class, 'destroy'])->name('palestra.destroy');
 
 //ROTAS PDF
-Route::resource('/pdf', PdfController::class);
+Route::resource('/certificado', PdfController::class);
 Route::get('/certificados', [PdfController::class, 'index'])->name('certificado.index');
 Route::get('/certificado/{id}', [PdfController::class, 'show'])->name('certificado.show');
-
