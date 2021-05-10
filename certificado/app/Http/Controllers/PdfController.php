@@ -17,6 +17,11 @@ class PdfController extends Controller
 
     public function show($id)
     {
+        //setando a data
+        setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+        date_default_timezone_set('America/Sao_Paulo');
+
+
         $escola = Escola::all();
         $palestra = Palestra::find($id);
 

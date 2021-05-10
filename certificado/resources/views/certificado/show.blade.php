@@ -1,30 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.pdf')
+@section('content')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@foreach ($escola as $escolas)
+@if ($escolas->id == $palestra->escola_id)
 
-<body>
-    @foreach ($escola as $escolas)
-    @if ($escolas->id == $palestra->escola_id)
+<div class="container" id="certificado-texto">
 
-    A Escola Técnica Estadual (Etec) {{ $escolas->nome_escolas }} confere ao(a) Sr(a). {{ $palestra->palestrante }}, o
-    presente certificado considerando o importante trabalho voluntário ministrando a palestra com o tema
-    {{ $palestra->tema }}, realizada no dia {{ $palestra->periodo }}, com {{ $palestra->horas }} de duração.<br>
-    <br>
-    {{$palestra->cidade}}, 99 de mes de 9999<br>
-    <br>
-    Registro n. 9999<br>
-    <br>
-    Prof. {{$escolas->responsavel}}<br>
-    {{ $escolas->funcao_resp }}<br>
+    <div id="texto-principal">
+        <p>A Escola Técnica Estadual (Etec) {{ $escolas->nome_escolas }} confere ao(a) Sr(a).
+            <strong>{{ $palestra->palestrante }}</strong>, o presente certificado considerando o importante trabalho
+            voluntário ministrando a palestra com o tema "<strong>{{ $palestra->tema }}</strong>", realizada no dia
+            {{ $palestra->periodo }}, com {{ $palestra->horas }} de duração.</p>
+    </div>
 
-    @endif
-    @endforeach
-</body>
+    <div id="cidade-data">
+        <p>{{$palestra->cidade}}, {{ strftime('%d de %B de %Y', strtotime('today')) }}</p>
+    </div>
 
-</html>
+    <div id="assinatura-responsavel">
+        <img id="assinatura" src="{{ public_path('img/assinatura.png') }}" alt="assinatura">
+        <p>Prof. {{$escolas->responsavel}}<br>{{ $escolas->funcao_resp }}</p>
+    </div>
+
+    <div id="registro">
+        <p>Registro n. 9999</p>
+    </div>
+
+</div>
+
+@endif
+@endforeach
+@endsection
