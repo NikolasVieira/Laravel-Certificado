@@ -17,7 +17,7 @@
                 <th scope="col">Periodo</th>
                 <th scope="col">Cidade</th>
                 <th scope="col">Horas de Duração</th>
-                <th scope="col">opções</th>
+                <th scope="col">Opções</th>
             </tr>
         </thead>
         @foreach($palestra as $palestras)

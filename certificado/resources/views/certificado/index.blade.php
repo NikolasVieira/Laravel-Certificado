@@ -4,14 +4,14 @@
 
 <div class="container">
     <h2>Obter Certificado</h2>
-    <hr />
+    <hr/>
     <p>Escolha a Palestra que deseja obter o Certificado</p>
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nome do Palestrante</th>
                 <th scope="col">Tema da Palestra</th>
-                <th scope="col">opções</th>
+                <th scope="col">Opções</th>
             </tr>
         </thead>
         @foreach($palestra as $palestras)

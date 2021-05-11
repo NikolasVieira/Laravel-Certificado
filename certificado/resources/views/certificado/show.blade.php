@@ -4,7 +4,7 @@
 @foreach ($escola as $escolas)
 @if ($escolas->id == $palestra->escola_id)
 
-<div class="container" id="certificado-texto">
+<div id="certificado-texto">
 
     <div id="texto-principal">
         <p>A Escola Técnica Estadual (Etec) {{ $escolas->nome_escolas }} confere ao(a) Sr(a).
@@ -23,7 +23,7 @@
     </div>
 
     <div id="registro">
-        <p>Registro n. 9999</p>
+        <p>Registro n. {{$palestra->id}}</p>
     </div>
 
 </div>
