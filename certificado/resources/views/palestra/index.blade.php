@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-flex ml-5 mr-5">
     <h2>Informações da Palestra</h2>
     <hr />
     <a href="{{ route('palestra.create') }}" class="btn btn-success">Novo Contato</a>
@@ -32,8 +32,6 @@
                 <td>{{ $palestras->horas }}</td>
                 <td>
                     <a href="{{ route('palestra.edit',$palestras->id)}}" class="btn btn-primary btn-sm">Editar</a>
-                    <a href="{{ route('palestra.show',$palestras->id)}}" class="btn btn-primary btn-sm">ver</a>
-                    <a href="{{ route('certificado.index',$palestras->id)}}" class="btn btn-primary btn-sm">certificado</a>
                     <a href="{{ route('palestra.destroy',['id'=>$palestras->id])}}" class="btn btn-danger btn-sm">Remover</a>
                 </td>
             </tr>

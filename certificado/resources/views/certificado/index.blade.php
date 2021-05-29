@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container-flex ml-5 mr-5">
     <h2>Obter Certificado</h2>
     <hr/>
     <p>Escolha a Palestra que deseja obter o Certificado</p>
