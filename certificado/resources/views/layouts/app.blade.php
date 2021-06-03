@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -31,10 +32,18 @@
             <a href="{{ route('certificado.index') }}" class="btn btn-success ml-2"> Obter Certificados</a>
         </form>
     </nav>
+    
     <div id="app">
         <main class="py-4">
             @yield('content')
         </main>
+    </div>
+
+    <div class="bg-dark fixed-bottom p-4" id="footer">
+        <h2>Feito por:</h2>
+        <p>
+            A tarefa certificado teve como seus criadores Micaeli Almeida, Nikolas Raposo e Victor Guzella.
+        </p>
     </div>
 </body>
 

@@ -6,12 +6,11 @@ use App\Http\Controllers\EscolaController;
 use App\Http\Controllers\PalestraController;
 use App\Http\Controllers\PdfController;
 
-Route::view('/', 'index')->name('index');
-
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //CERTIFICADO
+Route::get('/', [PdfController::class, 'index'])->name('index');
 
 //ROTAS ESCOLA
 Route::resource('/escola', EscolaController::class);
